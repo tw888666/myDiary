@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mydiary">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 访问网络，进行地图相关业务数据请求，包括地图数据，路线规划，POI检索等 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+<!--    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>-->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyDiary"
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:name=".module.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".module.AboutActivity"
+            android:exported="false"
+            android:parentActivityName=".module.Main2Activity"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".module.Main2Activity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".module.LoginActivity"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".module.MineShowRecordActivity"
+            android:exported="false"
+            android:parentActivityName=".module.Main2Activity"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".module.AddRecordsActivity"
+            android:exported="false"
+            android:parentActivityName=".module.Main2Activity"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".module.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".module.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyDiary.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="jHGpoaEr4x1l55m2Ve1QBNtN8lZt6PEF" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.mydiary.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+    </application>
+
+</manifest>

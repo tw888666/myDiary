@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/common_bg_white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="70735-dragon.json"
+        app:lottie_loop="true" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:id="@+id/animation_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_fileName="69871-panda-talk.json"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="false" />
+    <Button
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:backgroundTint="@null"
+        android:id="@+id/btn_go"
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:background="@drawable/shape_bg_btn"
+        android:text="我看够了"
+        android:onClick="startLogin"
+        android:textColor="@color/common_text_333333"
+        android:textSize="14sp" />
+</RelativeLayout>

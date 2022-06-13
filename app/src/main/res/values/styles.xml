@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name ="myTheme" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#99dcfa</item>
+    </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+</resources>
